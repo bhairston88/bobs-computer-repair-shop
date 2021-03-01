@@ -1,0 +1,11 @@
+/* Logo styling */
+.logo {
+  margin-top: 10px;
+}
+
+/* Container styling */
+.main-container {
+  padding-top: 25px;
+  width: 80%;
+  margin: 0 auto;
+}

@@ -1,0 +1,10 @@
+<!-- An HTML component that displays a list of selected services and parts -->
+
+<mat-list>
+  <h3 color="primary">Services</h3>
+  <mat-list-item>{{ service }}</mat-list-item>
+  <h3>Parts and Labor</h3>
+  <mat-list-item>Parts: {{ parts |  currency: 'USD': true: '1.2-2' }}</mat-list-item>
+  <mat-list-item>Hours of Labor: {{ labor }} hour</mat-list-item>
+</mat-list>
+

@@ -1,0 +1,14 @@
+/* Button Styling */
+
+#button {
+  padding-left: 50px;
+}
+
+/* Mat-list styling */
+.services {
+  text-align: center;
+}
+
+.mat-list-base.inline-list {
+  padding-left: 200px;
+}

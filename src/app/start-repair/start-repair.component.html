@@ -1,0 +1,67 @@
+<!-- An HTML page for the Start Repair component -->
+
+<br /><br />
+
+<div fxLayout="row wrap" fxLayoutGap="20px">
+  <div fxFlex class="service-form">
+
+    <!-- Material card with three inputs of services, parts, and labor -->
+
+    <mat-card color="primary">
+      <mat-card-title>Select Service(s)</mat-card-title>
+      <mat-card-subtitle>Please select at least ONE</mat-card-subtitle>
+
+      <mat-card-content>
+        <form fxLayout="column" fxLayoutGap="16px">
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Services</mat-label>
+
+            <!-- Loops over the selectableServices array displays them in a drop-down input -->
+            <mat-select [(ngModel)]="serviceEntry.service" name="selectService">
+              <mat-option *ngFor="let service of selectableServices" [value]="service">{{ service }}</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </form>
+          <hr>
+          <form fxLayout="column">
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Cost of Parts</mat-label>
+
+            <!-- Maps the serviceEntry.labor and serviceEntry.parts using "Banana in a box" and outputs the entry in the customer invoice material card -->
+            <input type="number" id="txtParts" name="Parts" matInput [(ngModel)]="serviceEntry.parts" [(ngModel)]="parts">
+          </mat-form-field>
+          <mat-form-field fxFlex appearance="fill">
+            <mat-label>Labor</mat-label>
+            <input type="number" id="txtLabor" name="Labor" matInput [(ngModel)]="serviceEntry.labor" [(ngModel)]="labor" matInput placeholder="Value of labor @$50.00">
+          </mat-form-field>
+
+          <!-- A material button that saves the input values to the customer invoice material card -->
+          <button mat-raised-button color="accent" (click)="addEntry()">Save</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Material card that displays a list from the services entry form and the invoice total -->
+    <div fxFlex class="selected-service">
+      <mat-card>
+        <mat-card-title>Customer Invoice</mat-card-title>
+        <mat-card-content>
+          <app-selected-services *ngFor="let entry of serviceEntries" [ngValue]="entry.service" [service]="entry.service" [parts]="entry.parts" [labor]="entry.labor"></app-selected-services>
+          <p>Total: $<app-total [invoiceTotal]="invoiceTotal"></app-total></p>
+      </mat-card-content>
+        <div fxLayout="row wrap">
+
+          <!-- A material button that clears customer invoice material card -->
+          <div fxFlex class="button">
+            <button mat-raised-button color="accent" (click)="cancelTransaction()">Cancel</button>
+          </div>
+
+          <!-- A material button that calculates the invoice total -->
+          <div fxFlex class="button">
+            <button mat-raised-button color="accent" (click)="calculateTotal()">Calculate</button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>

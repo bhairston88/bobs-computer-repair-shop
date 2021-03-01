@@ -1,0 +1,10 @@
+/* Text styling */
+p {
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+/* Header styling */
+h1 {
+  text-align: center;
+}
